@@ -2,6 +2,7 @@
 //  Study_SwiftUiUITestsLaunchTests.swift
 //  Study-SwiftUiUITests
 //
+//
 //  Created by Rennan Rebouças on 03/10/22.
 //
 
