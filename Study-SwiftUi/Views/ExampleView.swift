@@ -15,8 +15,6 @@ enum TypeOfDishes: String, CaseIterable {
 }
 
 struct ExampleView: View {
-    
-    @State var typeOfDishSelected: TypeOfDishes = .all
 
     @StateObject private var viewModel = ExampleViewModel()
 
@@ -26,32 +24,30 @@ struct ExampleView: View {
                 HStack {
                     Text("Select a type of dish: ")
                         .font(.body)
-                    Picker("Types of dishes", selection: $typeOfDishSelected) {
+                    Picker("Types of dishes", selection: $viewModel.typeOfDishSelected) {
                         ForEach(TypeOfDishes.allCases, id: \.self) {
                             Text($0.rawValue.uppercased())
                         }
                     }
                 }
-                if let food = viewModel.food {
-                    AsyncImage(url: URL(string: food.image)) { image in
+                if viewModel.isLoading {
+                    ShimmerView()
+                        .padding()
+                        .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
+                } else {
+                    AsyncImage(url: URL(string: viewModel.food.image)) { image in
                         image
                             .resizable()
                             .scaledToFit()
                             .padding()
                             .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
-                                
                     } placeholder: {
                         ShimmerView()
-                            .frame(width: metrics.size.width, height: metrics.size.height * 0.6, alignment: .center)
                             .padding()
+                            .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
                     }
-                } else {
-                    ProgressView()
-                        .padding()
-                        .onAppear() {
-                            viewModel.fetchNewFood()
-                        }
                 }
+                
                 Button("Another dish") {
                     viewModel.fetchNewFood()
                 }
