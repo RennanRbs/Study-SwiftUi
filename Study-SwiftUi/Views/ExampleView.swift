@@ -7,14 +7,29 @@
 
 import SwiftUI
 
+enum TypeOfDishes: String, CaseIterable {
+    case burger
+    case pizza
+    case rice
+    case all
+}
+
 struct ExampleView: View {
     
-    @State var food: Food?
-    
+    @State var food = Food(image: "https://foodish-api.herokuapp.com/images/biryani/biryani2.jpg")
+    @State var typeOfDishSelected: TypeOfDishes = .all
     var body: some View {
         GeometryReader { metrics in
             VStack {
-                if let food = food {
+                HStack {
+                    Text("Select a type of dish: ")
+                        .font(.body)
+                    Picker("Types of dishes", selection: $typeOfDishSelected) {
+                        ForEach(TypeOfDishes.allCases, id: \.self) {
+                            Text($0.rawValue.uppercased())
+                        }
+                    }
+                }
                     AsyncImage(url: URL(string: food.image)) { image in
                         image
                             .resizable()
@@ -22,17 +37,11 @@ struct ExampleView: View {
                             .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
                                 
                     } placeholder: {
-                        ProgressView()
+                        ShimmerView()
+                            .frame(width: metrics.size.width, height: metrics.size.height * 0.6, alignment: .center)
+                            .padding()
                     }
-                } else {
-                    ProgressView()
-                        .padding()
-                        .onAppear() {
-                            FoodApi().loadData { food in
-                                self.food = food
-                            }
-                        }
-                }
+                
                 Button("Another dish") {
                     FoodApi().loadData { food in
                         self.food = food
