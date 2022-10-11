@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1520B33828F5DB3700649B36 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33728F5DB3700649B36 /* ExampleView.swift */; };
+		1520B33B28F5E31500649B36 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33A28F5E31500649B36 /* Food.swift */; };
+		1520B33E28F5E38300649B36 /* FoodApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33D28F5E38300649B36 /* FoodApi.swift */; };
 		E87EC92328EB88DF00D4323C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EC92228EB88DF00D4323C /* AppDelegate.swift */; };
 		E87EC92528EB88DF00D4323C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EC92428EB88DF00D4323C /* SceneDelegate.swift */; };
 		E87EC92728EB88DF00D4323C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87EC92628EB88DF00D4323C /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		1520B33728F5DB3700649B36 /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
+		1520B33A28F5E31500649B36 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		1520B33D28F5E38300649B36 /* FoodApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodApi.swift; sourceTree = "<group>"; };
 		E87EC91F28EB88DF00D4323C /* Study-SwiftUi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study-SwiftUi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87EC92228EB88DF00D4323C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87EC92428EB88DF00D4323C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		1520B33928F5E30E00649B36 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1520B33A28F5E31500649B36 /* Food.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		1520B33C28F5E37B00649B36 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1520B33D28F5E38300649B36 /* FoodApi.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		E87EC91628EB88DF00D4323C = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +131,8 @@
 		E87EC92128EB88DF00D4323C /* Study-SwiftUi */ = {
 			isa = PBXGroup;
 			children = (
+				1520B33C28F5E37B00649B36 /* Service */,
+				1520B33928F5E30E00649B36 /* Entities */,
 				1520B33628F5DB2000649B36 /* Views */,
 				E87EC92228EB88DF00D4323C /* AppDelegate.swift */,
 				E87EC92428EB88DF00D4323C /* SceneDelegate.swift */,
@@ -277,6 +299,8 @@
 				E87EC92328EB88DF00D4323C /* AppDelegate.swift in Sources */,
 				E87EC92528EB88DF00D4323C /* SceneDelegate.swift in Sources */,
 				1520B33828F5DB3700649B36 /* ExampleView.swift in Sources */,
+				1520B33E28F5E38300649B36 /* FoodApi.swift in Sources */,
+				1520B33B28F5E31500649B36 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
