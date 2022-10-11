@@ -16,8 +16,10 @@ enum TypeOfDishes: String, CaseIterable {
 
 struct ExampleView: View {
     
-    @State var food = Food(image: "https://foodish-api.herokuapp.com/images/biryani/biryani2.jpg")
     @State var typeOfDishSelected: TypeOfDishes = .all
+
+    @StateObject private var viewModel = ExampleViewModel()
+
     var body: some View {
         GeometryReader { metrics in
             VStack {
@@ -30,9 +32,11 @@ struct ExampleView: View {
                         }
                     }
                 }
+                if let food = viewModel.food {
                     AsyncImage(url: URL(string: food.image)) { image in
                         image
                             .resizable()
+                            .scaledToFit()
                             .padding()
                             .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
                                 
@@ -41,11 +45,15 @@ struct ExampleView: View {
                             .frame(width: metrics.size.width, height: metrics.size.height * 0.6, alignment: .center)
                             .padding()
                     }
-                
+                } else {
+                    ProgressView()
+                        .padding()
+                        .onAppear() {
+                            viewModel.fetchNewFood()
+                        }
+                }
                 Button("Another dish") {
-                    FoodApi().loadData { food in
-                        self.food = food
-                    }
+                    viewModel.fetchNewFood()
                 }
                 .padding()
                 .font(.headline)
@@ -60,6 +68,6 @@ struct ExampleView: View {
 
 struct ExampleView_Previews: PreviewProvider {
     static var previews: some View {
-        ExampleView(food: Food(image: "https://foodish-api.herokuapp.com/images/biryani/biryani2.jpg"))
+        ExampleView()
     }
 }
