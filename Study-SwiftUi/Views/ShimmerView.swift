@@ -6,6 +6,8 @@
 //
 
 //fonte: https://medium.com/@Mary_Dort/shimmer-effect-with-swiftui-cbe02946c12f
+//
+
 
 import SwiftUI
 
