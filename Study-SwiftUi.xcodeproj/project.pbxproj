@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1512488928F603C300197671 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512488828F603C300197671 /* ShimmerView.swift */; };
 		1520B33828F5DB3700649B36 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33728F5DB3700649B36 /* ExampleView.swift */; };
 		1520B33B28F5E31500649B36 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33A28F5E31500649B36 /* Food.swift */; };
 		1520B33E28F5E38300649B36 /* FoodApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520B33D28F5E38300649B36 /* FoodApi.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1512488828F603C300197671 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		1520B33728F5DB3700649B36 /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
 		1520B33A28F5E31500649B36 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		1520B33D28F5E38300649B36 /* FoodApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodApi.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				1520B33728F5DB3700649B36 /* ExampleView.swift */,
+				1512488828F603C300197671 /* ShimmerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				E87EC92D28EB88DF00D4323C /* Study_SwiftUi.xcdatamodeld in Sources */,
 				E87EC92328EB88DF00D4323C /* AppDelegate.swift in Sources */,
 				E87EC92528EB88DF00D4323C /* SceneDelegate.swift in Sources */,
+				1512488928F603C300197671 /* ShimmerView.swift in Sources */,
 				1520B33828F5DB3700649B36 /* ExampleView.swift in Sources */,
 				1520B33E28F5E38300649B36 /* FoodApi.swift in Sources */,
 				1520B33B28F5E31500649B36 /* Food.swift in Sources */,

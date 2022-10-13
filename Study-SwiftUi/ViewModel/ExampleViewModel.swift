@@ -10,12 +10,21 @@ import SwiftUI
 
 extension ExampleView {
     @MainActor class ExampleViewModel: ObservableObject {
-        @Published private(set) var food: Food?
+        @Published private(set) var food = Food(image: "https://foodish-api.herokuapp.com/images/biryani/biryani2.jpg")
+        @Published var typeOfDishSelected: TypeOfDishes = .all
+        @Published var isLoading = false
+        
+        
         
         func fetchNewFood() {
-            FoodApi().loadData { food in
+            isLoading = true
+            
+            FoodApi().loadData(typeOfDish: typeOfDishSelected) { food in
+                self.isLoading = false
                 self.food = food
             }
+            
         }
+
     }
 }

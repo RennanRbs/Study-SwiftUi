@@ -7,31 +7,47 @@
 
 import SwiftUI
 
+enum TypeOfDishes: String, CaseIterable {
+    case burger
+    case pizza
+    case rice
+    case all
+}
+
 struct ExampleView: View {
 
     @StateObject private var viewModel = ExampleViewModel()
-    
+
     var body: some View {
         GeometryReader { metrics in
             VStack {
-                if let food = viewModel.food {
-                    AsyncImage(url: URL(string: food.image)) { image in
+                HStack {
+                    Text("Select a type of dish: ")
+                        .font(.body)
+                    Picker("Types of dishes", selection: $viewModel.typeOfDishSelected) {
+                        ForEach(TypeOfDishes.allCases, id: \.self) {
+                            Text($0.rawValue.uppercased())
+                        }
+                    }
+                }
+                if viewModel.isLoading {
+                    ShimmerView()
+                        .padding()
+                        .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
+                } else {
+                    AsyncImage(url: URL(string: viewModel.food.image)) { image in
                         image
                             .resizable()
                             .scaledToFit()
                             .padding()
                             .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
-                                
                     } placeholder: {
-                        ProgressView()
+                        ShimmerView()
+                            .padding()
+                            .frame(width: metrics.size.width, height: metrics.size.height * 0.6)
                     }
-                } else {
-                    ProgressView()
-                        .padding()
-                        .onAppear() {
-                            viewModel.fetchNewFood()
-                        }
                 }
+                
                 Button("Another dish") {
                     viewModel.fetchNewFood()
                 }
